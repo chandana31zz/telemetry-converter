@@ -10,7 +10,6 @@ with open("./data-2.json","r") as f:
 with open("./data-result.json","r") as f:
     jsonExpectedResult = json.load(f)
 
-
 # convert json data from format 1
 def convertFromFormat1(jsonObject):
 
@@ -34,7 +33,6 @@ def convertFromFormat1(jsonObject):
     }
 
     return result
-
 
 # convert json data from format 2
 def convertFromFormat2(jsonObject):
@@ -63,14 +61,12 @@ def convertFromFormat2(jsonObject):
 
     return result
 
-
 def main(jsonObject):
 
     if jsonObject.get('device') is None:
         return convertFromFormat1(jsonObject)
     else:
         return convertFromFormat2(jsonObject)
-
 
 # unit tests
 class TestSolution(unittest.TestCase):
@@ -86,7 +82,6 @@ class TestSolution(unittest.TestCase):
     def test_dataType2(self):
         result = main(jsonData2)
         self.assertEqual(result, jsonExpectedResult, 'Converting from Type 2 failed')
-
 
 if __name__ == '__main__':
     unittest.main()
